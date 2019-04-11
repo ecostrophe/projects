@@ -3,9 +3,9 @@ The N Queen is the problem of placing N chess queens on an N×N chessboard so th
 For example:
 Input: 4 
 Output:
-{ 0, 1, 0, 0}
-{ 0, 0, 0, 1}
-{ 1, 0, 0, 0} 
-{ 0, 0, 1, 0}
+{ -, Q, -, -}
+{ -, -, -, Q}
+{ Q, -, -, -} 
+{ -, -, Q, -}
 Ps: There might be more than one solution for this input. 
 so I try to Write a program to find the possible number of arrangements for any given number.
