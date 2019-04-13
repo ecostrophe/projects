@@ -36,12 +36,15 @@ def findallposibility(grid):
 	return True
 #__ fonction to check evry row in grid
 def checkbyrow(row):
-	global sol,queen
+	global queen
+	print("len of sol:",len(sol)) #for test only
+	print("sol list:",sol) #for test only
 	if len(sol)==0:
 		sol.append(row)
 		return True
 	else:
 		for prop in sol:
+			print("prop element in the sol list:",prop) #for test only
 			if row.index(queen) == prop.index(queen):
 				return False
 			else:
