@@ -42,7 +42,7 @@ def checkbyrow(row):
 		return True
 	else:
 		for prop in sol:
-			if row.index(queen)== prop.index(queen):
+			if row.index(queen) == prop.index(queen):
 				return False
 			else:
 				sol.append(row)
