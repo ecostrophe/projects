@@ -36,7 +36,7 @@ def findallposibility(grid):
 	return True
 #__ fonction to check evry row in grid
 def checkbyrow(row):
-	global queen
+	global queen,sol
 	print("len of sol:",len(sol)) #for test only
 	print("sol list:",sol) #for test only
 	if len(sol)==0:
