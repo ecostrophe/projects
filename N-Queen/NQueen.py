@@ -24,26 +24,19 @@ def creatgrid():
 	return True
 #___ fonction find all possibility:
 def findallposibility(grid):
-	global queen, case, nqueen,sol
+	global number,queen,case,nqueen
 	for row in grid:
 		for z in range (number):
 			row[z]=queen
-			print("the row sending to check by row fonction is:",row)#for test only
-			gt= checkbyrow(row)
-			print ("result of the check by row fonction is:",gt)#for test only
 			if checkbyrow(row):
-				nqueen+=1
-				print("the number of queen is found are:",nqueen)#for test only
+				nqueen +=1
 			else:
 				row[z]=case
 	return True
 
-
-
 #__ fonction to check evry row in grid
 def checkbyrow(row):
-	global sol,grid
-	print("the sol liste:",sol)#for test only
+	global sol
 	if len(sol)==0:
 		sol.append(row)
 		return True
@@ -53,7 +46,7 @@ def checkbyrow(row):
 		else:
 			sol.append(row)
 			return True
-
+	
 #__ fonction check posibility:
 def checkposibility():
 	return
