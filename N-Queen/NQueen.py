@@ -28,10 +28,12 @@ def findallposibility(grid):
 	for row in grid:
 		for z in range (number):
 			row[z]=queen
-			checkbyrow(row)
+			print("the row sending to check by row fonction is:",row)#for test only
+			gt= checkbyrow(row)
+			print ("result of the check by row fonction is:",gt)#for test only
 			if checkbyrow(row):
 				nqueen+=1
-				print("nqueen",nqueen)
+				print("the number of queen is found are:",nqueen)#for test only
 			else:
 				row[z]=case
 	return True
@@ -41,6 +43,7 @@ def findallposibility(grid):
 #__ fonction to check evry row in grid
 def checkbyrow(row):
 	global sol,grid
+	print("the sol liste:",sol)#for test only
 	if len(sol)==0:
 		sol.append(row)
 		return True
