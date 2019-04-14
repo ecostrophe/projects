@@ -14,7 +14,7 @@ def slove(number,nqueen):
 		print("Creation of grid with possible Queen positions with",nqueen,"Queen(s)") #text for test only
 		for item in sol:
 			print(item)
-	
+
 #___ fonction creat grid:
 def creatgrid():
 	global number,case
@@ -24,19 +24,22 @@ def creatgrid():
 	return True
 #___ fonction find all possibility:
 def findallposibility(grid):
-	global number,queen,case,nqueen
+	global number,case,nqueen
+	#while nqueen != number:
 	for row in grid:
 		for z in range (number):
-			row[z]=queen
-			if checkbyrow(row):
+			if checkbyrow(row,z):
 				nqueen +=1
 			else:
 				row[z]=case
 	return True
 
-#__ fonction to check evry row in grid
-def checkbyrow(row):
+
+
+#__ fonction to check evry row in grid:
+def checkbyrow(row,n):
 	global sol
+	row[n]=queen
 	if len(sol)==0:
 		sol.append(row)
 		return True
@@ -46,7 +49,7 @@ def checkbyrow(row):
 		else:
 			sol.append(row)
 			return True
-	
+
 #__ fonction check posibility:
 def checkposibility():
 	return
