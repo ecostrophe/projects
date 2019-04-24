@@ -39,33 +39,36 @@ class Superhedgehog():
                     road.append(row.index(item))
                     road.append(labyrinth.index(row))
                     print(road)
-    
 
-    def current_position(self,moves):
+    def current_position(self,startpostion,moves):
         #
-        for move in moves:
-            if move == "up":
-                cpx=((self.start_position())[0])
-                cpy=((self.start_position())[1])-1
-                currentpos=[cpx,cpy]
-                return currentpos
-            elif move=="down":
-                cpx=((self.start_position())[0])
-                cpy=((self.start_position())[1])+1
-                currentpos=[cpx,cpy]
-                return currentpos
-            elif move=="right":
-                cpx=((self.start_position())[0])+1
-                cpy=((self.start_position())[1])
-                currentpos=[cpx,cpy]
-                return currentpos
-            elif move=="left":
-                cpx=((self.start_position())[0])-1
-                cpy=((self.start_position())[1])
-                currentpos=[cpx,cpy]
-                return currentpos
-            else:
-                return self.start_position()
+        print("The current move:",move)
+        if move == "up":
+            cpx=(startpostion[0])
+            cpy=(startpostion[1])-1
+            currentpos=[cpx,cpy]
+            print("up")
+            return currentpos
+        elif move=="down":
+            cpx=(startpostion[0])
+            cpy=(startpostion[1])+1
+            currentpos=[cpx,cpy]
+            print("down")
+            return currentpos
+        elif move=="right":
+            cpx=(startpostion[0])+1
+            cpy=(startpostion[1])
+            currentpos=[cpx,cpy]
+            print("right")
+            return currentpos
+        elif move=="left":
+            cpx=(startpostion[0])-1
+            cpy=(startpostion[1])
+            currentpos=[cpx,cpy]
+            print("left")
+            return currentpos
+        else:
+            return startpostion
 
 labyrinth=[
     ["R","R","R","R","R","R","R","R","R","R","R","R","R","R","R","R"],
@@ -77,15 +80,19 @@ labyrinth=[
     ["R","R","W","W","W","W","R","R","W","R","W","W","R","W","W","R"],
     ["R","R","R","R","R","R","R","R","R","R","R","R","R","R","R","R"]
 ]
-moves=("up","down","left","right")
+
+moves=["right","right","right","right","down"]
 
 h=Superhedgehog("Mimo",labyrinth)
 print(h)
 hedgehogstart=h.start_position()
-print("the start postion: ",hedgehogstart)
+print("The start postion: ",hedgehogstart)
 hedgehogfinish=h.finish_position()
-print("the finish postion: ",hedgehogfinish)
-hedgehogmoves=h.current_position(moves)
-print("the current postion:",hedgehogmoves)
-h.findway()
+print("The finish postion: ",hedgehogfinish)
+
+if len(moves)!= 0:
+    for move in moves:
+        hedgehogmoves=h.current_position(hedgehogstart,move)
+        print("The current postion:",hedgehogmoves)
+
 print(h)
