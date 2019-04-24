@@ -1,4 +1,4 @@
-class Superhedgehog():
+class Hedgehog():
     #
     def __init__(self, name,labyrinth):
         self.name = name
@@ -29,7 +29,6 @@ class Superhedgehog():
 
     def findway(self):
         #
-        rock=[]
         road=[]
         for row in self.labyrinth:
             for item in row:
@@ -37,10 +36,10 @@ class Superhedgehog():
                     print("it's a rock")
                 elif item == "W":
                     road.append(row.index(item))
-                    road.append(labyrinth.index(row))
+                    #road.append(labyrinth.index(row))
                     print(road)
 
-    def current_position(self,startpostion,moves):
+    def current_position(self,startpostion,move):
         #
         print("The current move:",move)
         if move == "up":
@@ -69,30 +68,3 @@ class Superhedgehog():
             return currentpos
         else:
             return startpostion
-
-labyrinth=[
-    ["R","R","R","R","R","R","R","R","R","R","R","R","R","R","R","R"],
-    ["S","W","W","W","W","R","W","R","W","R","W","W","W","R","W","R"],
-    ["R","R","R","R","W","R","W","W","W","R","W","R","W","R","W","F"],
-    ["R","W","W","W","W","R","R","R","W","W","W","R","W","R","W","R"],
-    ["R","R","W","R","R","R","W","W","W","R","W","R","W","W","W","R"],
-    ["R","W","W","R","R","W","W","R","W","R","W","R","R","W","R","R"],
-    ["R","R","W","W","W","W","R","R","W","R","W","W","R","W","W","R"],
-    ["R","R","R","R","R","R","R","R","R","R","R","R","R","R","R","R"]
-]
-
-moves=["right","right","right","right","down"]
-
-h=Superhedgehog("Mimo",labyrinth)
-print(h)
-hedgehogstart=h.start_position()
-print("The start postion: ",hedgehogstart)
-hedgehogfinish=h.finish_position()
-print("The finish postion: ",hedgehogfinish)
-
-if len(moves)!= 0:
-    for move in moves:
-        hedgehogmoves=h.current_position(hedgehogstart,move)
-        print("The current postion:",hedgehogmoves)
-
-print(h)
