@@ -13,7 +13,7 @@ class Hedgehog():
             for item in row:
                 if item == "S":
                     spx=row.index(item)
-                    spy=labyrinth.index(row)
+                    spy=self.labyrinth.index(row)
                     startpos=[spx,spy]
         return startpos
 
@@ -23,7 +23,7 @@ class Hedgehog():
             for item in row:
                 if item == "F":
                     fpx=row.index(item)
-                    fpy=labyrinth.index(row)
+                    fpy=self.labyrinth.index(row)
                     finishpos=[fpx,fpy]
         return finishpos
 
@@ -39,32 +39,41 @@ class Hedgehog():
                     #road.append(labyrinth.index(row))
                     print(road)
 
-    def current_position(self,startpostion,move):
+    def current_position(self,startposition,move):
         #
-        print("The current move:",move)
+        xmoveposition= 0
+        ymoveposition= 0
         if move == "up":
-            cpx=(startpostion[0])
-            cpy=(startpostion[1])-1
+            ymoveposition-=1
+            print("xmoveposition",xmoveposition,"ymoveposition",ymoveposition)
+            cpx=(startposition[0])+ xmoveposition
+            cpy=(startposition[1])+ymoveposition
             currentpos=[cpx,cpy]
             print("up")
             return currentpos
         elif move=="down":
-            cpx=(startpostion[0])
-            cpy=(startpostion[1])+1
+            ymoveposition+=1
+            print("xmoveposition",xmoveposition,"ymoveposition",ymoveposition)
+            cpx=(startposition[0])+xmoveposition
+            cpy=(startposition[1])+ymoveposition
             currentpos=[cpx,cpy]
             print("down")
             return currentpos
         elif move=="right":
-            cpx=(startpostion[0])+1
-            cpy=(startpostion[1])
+            xmoveposition+=1
+            print("xmoveposition",xmoveposition,"ymoveposition",ymoveposition)
+            cpx=(startposition[0])+xmoveposition
+            cpy=(startposition[1])+ymoveposition
             currentpos=[cpx,cpy]
             print("right")
             return currentpos
         elif move=="left":
-            cpx=(startpostion[0])-1
-            cpy=(startpostion[1])
+            xmoveposition-=1
+            print("xmoveposition",xmoveposition,"ymoveposition",ymoveposition)
+            cpx=(startposition[0])+xmoveposition
+            cpy=(startposition[1])+ymoveposition
             currentpos=[cpx,cpy]
             print("left")
             return currentpos
         else:
-            return startpostion
+            return startposition
