@@ -10,17 +10,10 @@ labyrinth=[
     ["R","R","W","W","W","W","R","R","W","R","W","W","R","W","W","R"],
     ["R","R","R","R","R","R","R","R","R","R","R","R","R","R","R","R"]
 ]
-
 moves=["up","right","right","right","down"]
 
 h=Hedgehog("Mimo",labyrinth)
 print(h)
-hedgehogstart=h.start_position()
-print("The start postion: ",hedgehogstart)
-hedgehogfinish=h.finish_position()
-print("The finish postion: ",hedgehogfinish)
-
-if len(moves)!= 0:
-    for move in moves:
-        hedgehogposition=h.current_position(hedgehogstart,move)
-        print("The current postion:",hedgehogposition)
+print(h.start_position())
+print(h.finish_position())
+h.findway(labyrinth)
